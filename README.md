@@ -8,7 +8,7 @@ this repo somewhwere, and then run:
 
 Once the container is built, you can run it as follows:
 
-    docker run -d <yourname> archivesspace
+    docker run -d <yourname>/archivesspace
 
 To determine which ports ArchivesSpace is running on, use the following command:
 
