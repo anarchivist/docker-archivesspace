@@ -2,7 +2,7 @@ This repository contains a recipe for making a [Docker](http://docker.io/)
 container for the [ArchivesSpace](http://github.com/archivesspace/archivesspace)
 archival management system, with MySQL and OpenJDK 7 JRE. To build, make
 sure you have Docker [installed](http://www.docker.io/gettingstarted/), clone
-this repo somewhwere, and then run:
+this repo somewhere, and then run:
 
     docker build -t <yourname>/archivesspace .
 
