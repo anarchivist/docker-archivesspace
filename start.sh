@@ -22,4 +22,6 @@ ENDL
   sleep 10s
 fi
 
-supervisord -n
+/usr/bin/mysqld_safe &
+/archivesspace/archivesspace.sh
+
