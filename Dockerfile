@@ -17,12 +17,12 @@ RUN chmod 755 /start.sh
 ADD ./supervisord.conf /etc/supervisord.conf
 
 # Fetch ArchivesSpace and make it run-ready
-RUN wget https://github.com/archivesspace/archivesspace/releases/download/v0.6.2/archivesspace.v0.6.2.zip
-RUN unzip archivesspace.v0.6.2.zip -d /
+ADD https://github.com/archivesspace/archivesspace/releases/download/v0.6.2/archivesspace.v0.6.2.zip /tmp/
+RUN unzip /tmp/archivesspace.v0.6.2.zip -d /
 RUN chmod 755 /archivesspace/archivesspace.sh
 
 # Get the MySQL connectir
-RUN wget -O /archivesspace/lib/mysql-connector-java-5.1.25.jar http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.25/mysql-connector-java-5.1.25.jar  
+ADD http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.25/mysql-connector-java-5.1.25.jar /archivesspace/lib/ 
 
 # Expose the application's ports:
 # 8080: Staff UI
