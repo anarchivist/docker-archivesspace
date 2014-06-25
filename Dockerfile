@@ -4,7 +4,9 @@ FROM ubuntu:12.04
 MAINTAINER Mark Matienzo <mark@matienzo.org>
 
 # Get the ArchivesSpace dependencies...
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe multiverse" > /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise-updates main universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise-security main universe multiverse" >> /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get -y upgrade
 RUN cat /etc/apt/sources.list
@@ -15,13 +17,13 @@ ADD ./start.sh /start.sh
 RUN chmod 755 /start.sh
 
 # Fetch ArchivesSpace and make it run-ready
-ADD https://github.com/archivesspace/archivesspace/releases/download/v0.6.2/archivesspace.v0.6.2.zip /archivesspace.v0.6.2.zip
-RUN unzip /archivesspace.v0.6.2.zip -d /
-RUN rm /archivesspace.v0.6.2.zip
+ADD https://github.com/archivesspace/archivesspace/releases/download/v1.0.9/archivesspace-v1.0.9.zip /archivesspace.v1.0.9.zip
+RUN unzip /archivesspace.v1.0.9.zip -d /
+RUN rm /archivesspace.v1.0.9.zip
 RUN chmod 755 /archivesspace/archivesspace.sh
 
 # Get the MySQL connector
-ADD http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.25/mysql-connector-java-5.1.25.jar /archivesspace/lib/mysql-connector-java-5.1.25.jar 
+ADD http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.31/mysql-connector-java-5.1.31.jar /archivesspace/lib/mysql-connector-java-5.1.31.jar 
 
 # Expose the application's ports:
 # 8080: Staff UI
